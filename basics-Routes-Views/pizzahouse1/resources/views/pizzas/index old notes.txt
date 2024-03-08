@@ -1,0 +1,42 @@
+@extends('layouts.layout')
+@section('content')
+<div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+    
+
+    <div class="max-w-7xl mx-auto p-6 lg:p-8">
+
+        <div class="flex justify-center">
+            <h1> Pizza List</h1>   
+            
+        </div>
+        <p>{{ $name }}</p>
+        <p>{{ $age }}</p>
+
+        <div class="justify-center" >
+
+
+            <!-- @for($i=0; $i < count($pizzas); $i++)
+            <p>{{ $pizzas[$i]['type'] }}</p>
+            @endfor -->
+
+            @foreach($pizzas as $pizza)
+                <div>
+                    {{$loop->index}} {{$pizza['type']}} -- {{$pizza['base']}}
+                    @if($loop->first)
+                        <span>first in loop</span>
+                    @endif
+                    @if($loop->last)
+                        <span>last in loop</span>
+                    @endif
+                </div>
+            @endforeach
+
+          
+        </div>
+        
+
+        
+    </div>
+</div>
+@endsection('content')
+
